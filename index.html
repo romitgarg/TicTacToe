@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="tictac">
+        <h2>Tic Tac Toe</h1>
+            <div class="trunSelection">
+                <div style="text-align: left;margin-bottom: 10px; margin-left: 20px; ">Choose your turn</div>
+                <div onclick="Choose(this)" value="X" class="turn active"> X</div>
+                <div value="0" onclick="Choose(this)" class="turn">0</div>
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-item" Data-Value="1"></div>
+                <div class="grid-item" Data-Value="2"></div>
+                <div class="grid-item" Data-Value="3"></div>
+                <div class="grid-item" Data-Value="4"></div>
+                <div class="grid-item" Data-Value="5"></div>
+                <div class="grid-item" Data-Value="6"></div>
+                <div class="grid-item" Data-Value="7"></div>
+                <div class="grid-item" Data-Value="8"></div>
+                <div class="grid-item" Data-Value="9"></div>
+            </div>
+            <h2 class="currentStatus"></h2>
+            <!-- <button class="game--restart">Restart Game</button> -->
+    </div>
+    <script src="./tictacapp.js"></script>
+</body>
+
+</html>
