@@ -1,3 +1,5 @@
+
+
 const gameStatusDisplay = document.querySelector('.currentStatus');
 var currentTurnValue="X";
 var isGameActive=true;
@@ -13,10 +15,11 @@ function Choose(curretTurnSelector)
 {
     currentTurnValue = curretTurnSelector.getAttribute("value");
     var el = document.getElementsByClassName("turn");
-    var i;
-    for (i = 0; i < el.length; i++) {
-        el[i].className = "turn";
-    }
+   
+    for (let i of el) {
+        i.className = "turn";
+     }
+    
     curretTurnSelector.className = "turn active";
     gameStatusDisplay.innerHTML = currentPlayerTurn();
 }
@@ -43,9 +46,10 @@ function RemoveClickEvent(className)
 {
     var el = document.getElementsByClassName(className);
     var i;
-    for (i = 0; i < el.length; i++) {
-        el[i].removeAttribute("onclick");
-    }
+    for (let i of el) {
+        i.removeAttribute("onclick");
+     }
+   
 }
 
 
@@ -79,7 +83,7 @@ function updateGameStateWithCurrentPlayerValue(clickedCellIndex){
     }
 
     if (isWon) {
-        RemoveClickEvent("grid-item");
+        document.querySelectorAll('.grid-item').forEach(cell => cell.removeEventListener('click', MakeaTurn));
         gameStatusDisplay.innerHTML = StatusMessage();
         isGameActive = false;
         return;
@@ -87,7 +91,7 @@ function updateGameStateWithCurrentPlayerValue(clickedCellIndex){
 
     let roundDraw = !currentStatusOfGame.includes("");
     if (roundDraw) {
-        RemoveClickEvent("grid-item");
+        document.querySelectorAll('.grid-item').forEach(cell => cell.removeEventListener('click', MakeaTurn));
         gameStatusDisplay.innerHTML = drawMessage();
         isGameActive = false;
         return;
